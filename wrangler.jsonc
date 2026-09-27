@@ -1,0 +1,9 @@
+// Cloudflare deploy settings: serve this folder as a static site (no build step).
+// Files listed in .assetsignore (README, this file, git data) are not published.
+{
+  "name": "staraligners",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./"
+  }
+}
