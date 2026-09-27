@@ -1,0 +1,94 @@
+/* StarAligners: breakpoint rules (tablet 1080px, mobile 860px, small 520px)
+   and the reduced-motion overrides. Loaded after styles.css. */
+/* ── Tablet ── */
+@media (max-width:1080px){
+  .nav-links{display:none}
+  .nav-tools .btn{display:none}
+  .menu-btn{display:inline-flex}
+  .nav-tools{margin-left:auto}
+  .hero-bottom{grid-column:1/8}
+  .nav-in{gap:24px}
+  .principles{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 24px}
+  .foot-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .foot-brand{grid-column:1/-1}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery .shot:nth-child(even){margin-top:0}
+  .gallery .shot:nth-child(2),.gallery .shot:nth-child(4){transform:translateY(40px)}
+  .gallery{padding-bottom:40px}
+}
+
+/* ── Mobile (< 860px): recomposed, not just stacked ── */
+@media (max-width:860px){
+  :root{--nav-h:64px}
+  .brand svg,.brand img{height:40px}
+  .hero{min-height:auto;display:block}
+  .hero-in{display:flex;flex-direction:column;padding-top:calc(var(--nav-h) + 28px)}
+  .hero-eyebrow{margin-bottom:20px}
+  .hero-stage{position:relative;inset:auto;height:min(96vw,480px);margin:8px calc(var(--gutter) * -1) 0;z-index:0}
+  .hero-stage::before{inset:0}
+  .hero-fallback{inset:12%}
+  .hero-bottom{gap:26px;margin-top:4px;align-self:stretch}
+  .hero-cta .btn-primary{flex:1 1 100%}
+  .spec-in{grid-template-columns:1fr 1fr}
+  .spec-in>div{padding:18px 16px 20px}
+  .spec-in>div:nth-child(odd){border-left:0;padding-left:0}
+  .spec-in>div:nth-child(n+3){border-top:1px solid var(--line)}
+  .sec-head{grid-template-columns:1fr}
+  .sec-head>*{grid-column:1}
+  .about-grid{grid-template-columns:1fr}
+  .about-grid .h-l,.about-body,.about-sign{grid-column:1;grid-row:auto}
+  .about-sign{margin-top:40px}
+    .cap{grid-template-columns:1fr;gap:14px}
+  .cap-side{padding-top:0}
+  .wf{grid-template-columns:1fr;gap:0}
+  .wf-fig{top:var(--nav-h);height:50dvh;min-height:300px;max-height:520px;z-index:2;margin-inline:calc(var(--gutter) * -1);border-inline:0;border-top:0}
+  .wf-cap{top:14px;left:var(--gutter)}
+  .wf-bot{height:42px;font-size:.76rem}
+  .arch-stage{bottom:42px}
+  .co{font-size:.74rem}
+  .wf-svg{padding:12px 8px 0}
+  .wf-bot{padding:0 var(--gutter)}
+  .wf-steps{padding-left:40px}
+  .wf-step{min-height:54dvh}
+  .wf-step:first-child{min-height:44dvh;padding-top:6dvh}
+  .wf-step:last-child{min-height:58dvh}
+  .sheet-head{display:none}
+  .sheet-row{grid-template-columns:1fr;gap:10px}
+  .sheet-row .out{order:-1}
+  .pros-top{grid-template-columns:1fr}
+  .pros-left{position:static}
+  .aud li{grid-template-columns:1fr;gap:8px}
+  .principles{grid-template-columns:1fr;gap:32px}
+  .gallery{gap:8px}
+  .faq-item{grid-template-columns:1fr;gap:10px}
+  .quote-grid{grid-template-columns:1fr}
+  .quote-left{position:static}
+  .row{grid-template-columns:1fr}
+  .foot-cols{grid-template-columns:1fr 1fr}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:var(--z-bar);gap:8px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));
+    background:rgba(6,7,8,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+    transition:transform .45s var(--ease)}
+  .mbar.hide{transform:translateY(110%)}
+  .mbar .btn{min-height:48px}
+  .mbar .btn-primary{flex:1}
+  .mbar .ic{width:48px;padding:0;border:1px solid var(--line-2);color:var(--text)}
+  .mbar .ic svg{width:22px;height:22px}
+  body{padding-bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:520px){
+  .lb .pv,.lb .nx{top:auto;bottom:24px;transform:none}
+  .lb .pv{left:20px}.lb .nx{right:20px}
+}
+/* Very narrow phones (320px): let the email address wrap instead of widening the page */
+@media (max-width:359px){
+  .direct-row a,.foot-cols a{min-width:0;overflow-wrap:anywhere}
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .js .rv,.js .hero h1 .ln>span,.js .hero-fade{opacity:1;transform:none}
+  .js .shot.rv{clip-path:none}
+  }

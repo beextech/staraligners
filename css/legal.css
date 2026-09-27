@@ -1,0 +1,52 @@
+/* StarAligners: Privacy Policy and Terms of Use pages.
+   Loaded after styles.css and reuses its tokens, type and footer; nothing here affects index.html. */
+.lg-nav{border-bottom:1px solid var(--line)}
+.lg-nav .nav-in{justify-content:space-between}
+.lg-main{padding-block:clamp(56px,8vw,112px) clamp(64px,8vw,120px)}
+.lg-head{display:grid;gap:22px;max-width:62rem;padding-bottom:clamp(40px,5vw,64px);border-bottom:1px solid var(--line)}
+.lg-meta{display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--muted)}
+.lg-grid{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,46rem);gap:clamp(32px,6vw,96px);padding-top:clamp(40px,5vw,64px)}
+.lg-toc{position:sticky;top:32px;align-self:start}
+.lg-toc > p{color:var(--dim)}
+.lg-toc ol{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px;counter-reset:toc}
+.lg-toc a{counter-increment:toc;display:flex;gap:10px;color:var(--muted);text-decoration:none;font-size:.88rem;line-height:1.4;transition:color .2s}
+.lg-toc a::before{content:counter(toc,decimal-leading-zero);font-family:var(--f-mono);font-size:.72rem;color:var(--dim);padding-top:2px}
+.lg-toc a:hover{color:var(--text)}
+.lg-body{color:var(--text-2);counter-reset:sec}
+.lg-body section{padding-bottom:clamp(36px,4vw,52px);scroll-margin-top:24px}
+.lg-body section + section{padding-top:clamp(36px,4vw,52px);border-top:1px solid var(--line)}
+.lg-body h2{counter-increment:sec;display:flex;gap:16px;align-items:baseline;margin:0 0 20px;font-family:var(--f-display);font-weight:400;font-size:clamp(1.35rem,2vw,1.7rem);line-height:1.2;letter-spacing:-.02em;color:var(--text)}
+.lg-body h2::before{content:counter(sec,decimal-leading-zero);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;color:var(--blue)}
+.lg-body h3{margin:28px 0 10px;font-size:1rem;font-weight:520;color:var(--text)}
+.lg-body p + p,.lg-body p + ul,.lg-body ul + p,.lg-body .lg-table + p,.lg-body p + .lg-table,.lg-body p + .lg-note,.lg-body .lg-note + p{margin-top:14px}
+.lg-body ul{margin:0;padding-left:1.1em;display:grid;gap:8px}
+.lg-body li::marker{color:var(--dim)}
+.lg-body strong{color:var(--text);font-weight:520}
+.lg-body a{color:var(--text);text-underline-offset:3px;text-decoration-color:var(--line-2);transition:color .2s,text-decoration-color .2s}
+.lg-body a:hover{color:var(--blue);text-decoration-color:currentColor}
+.lg-body code{font-family:var(--f-mono);font-size:.85em;color:var(--text)}
+.lg-table{overflow-x:auto;border:1px solid var(--line)}
+.lg-table table{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.5}
+.lg-table th,.lg-table td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+.lg-table tr:last-child td{border-bottom:0}
+.lg-table th{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400;color:var(--muted);background:var(--bg-2)}
+.lg-table td:first-child{color:var(--text);min-width:10rem}
+.lg-note{border-left:2px solid var(--blue);padding:4px 0 4px 18px;color:var(--text-2)}
+/* Information StarAligners still has to supply. Remove the brackets once filled in. */
+.ph{font-family:var(--f-mono);font-size:.82em;color:var(--blue);background:var(--blue-08);padding:1px 5px;border-radius:var(--r);overflow-wrap:anywhere}
+.lg-foot .foot-bot{border-top:1px solid var(--line)}
+.lg-foot .foot-bot .legal a[aria-current="page"]{color:var(--text-2)}
+
+@media (max-width:900px){
+  .lg-grid{grid-template-columns:minmax(0,1fr)}
+  .lg-toc{position:static;padding-bottom:8px}
+}
+@media (max-width:560px){
+  .lg-nav .brand img{height:40px}
+  .lg-table th,.lg-table td{padding:12px}
+}
+@media print{
+  .lg-nav .btn,.lg-toc{display:none}
+  .lg-grid{grid-template-columns:1fr}
+  body,.lg-body,.lg-body h2,.lg-body strong{color:#000;background:#fff}
+}
